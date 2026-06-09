@@ -1,0 +1,18 @@
+environment:
+  environment_class: singularity
+  executable: apptainer
+  exec_args: ["--contain", "--cleanenv", "--fakeroot"]
+
+run:
+  sif_dir: "/path/to/apptainer/sifs"
+
+model:
+  model_name: "ByteDance-Seed/Seed-OSS-36B-Instruct"
+  cost_tracking: 'ignore_errors'
+  model_kwargs:
+    temperature: 0.0
+    drop_params: true
+    max_completion_tokens: 4096
+    api_base: "dummy_api_base"
+    api_key: "dummy_api_key"
+    custom_llm_provider: "openai"
